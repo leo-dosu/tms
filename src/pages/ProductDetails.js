@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 
 function ProductDetails() {
   return (
@@ -11,7 +13,7 @@ function ProductDetails() {
             <div className="col">
             <div className="breadcrumb__content text-center">
                 <ul className="breadcrumb__content--menu d-flex justify-content-center">
-                <li className="breadcrumb__content--menu__items"><a href="index.html">Home</a></li>
+                <li className="breadcrumb__content--menu__items"><Link to="/">Home</Link></li>
                 <li className="breadcrumb__content--menu__items"><span>Product Details</span></li>
                 </ul>
             </div>

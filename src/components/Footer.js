@@ -1,3 +1,4 @@
+import { Link, NavLink, Outlet } from "react-router-dom";
 const Footer = () => {
     return(
         <>
@@ -16,9 +17,9 @@ const Footer = () => {
               </h2>
               <div className="footer__widget--inner">
                 <div className="footer__logo">
-                  <a className="footer__logo--link" href="index.html">
+                  <Link className="footer__logo--link" to="/">
                     <img className="footer__logo--img" src="assets/img/logo/nav-log.webp" alt="logo-img" />
-                  </a>
+                  </Link>
                 </div>
                 <p className="footer__widget--desc">Corporate clients and leisure travelers has
                   been relying on Groundlink for dependable
@@ -29,7 +30,7 @@ const Footer = () => {
                       <path d="M18.3334 10.1666C18.3334 14.769 10.0001 20.9999 10.0001 20.9999C10.0001 20.9999 1.66675 14.769 1.66675 10.1666C1.66675 5.56421 5.39771 1.83325 10.0001 1.83325C14.6025 1.83325 18.3334 5.56421 18.3334 10.1666Z" stroke="currentColor" strokeWidth={2} />
                       <ellipse cx="10.0001" cy="10.1667" rx="2.5" ry="2.5" stroke="currentColor" strokeWidth={2} />
                     </svg>
-                    <span className="footer__widget--info__text">Brooklyn, New York, United States</span>
+                    <span className="footer__widget--info__text">Lagos, Nigeria.</span>
                   </li>
                   <li className="footer__widget--info_list">
                     <svg className="footer__widget--info__icon" width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,11 +57,11 @@ const Footer = () => {
                 </svg>
               </h2>
               <ul className="footer__widget--menu footer__widget--inner">
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="contact.html">Contact Us</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="about.html">About Us</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="wishlist.html">Wishlist</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="privacy-policy.html">Privacy Policy</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="faq.html">Frequently</a></li>
+                <li className="footer__widget--menu__list"><Link className="footer__widget--menu__text" to="/contact">Contact Us</Link></li>
+                <li className="footer__widget--menu__list"><Link className="footer__widget--menu__text" to="/shop">Shop with Us</Link></li>
+                <li className="footer__widget--menu__list"><Link className="footer__widget--menu__text" to="/wishlist">Wishlist</Link></li>
+                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="#">Privacy Policy</a></li>
+                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="#">Frequently</a></li>
               </ul>
             </div>
           </div>
@@ -72,16 +73,14 @@ const Footer = () => {
                 </svg>
               </h2>
               <ul className="footer__widget--menu footer__widget--inner">
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="my-account.html">My Account</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="cart.html">Shopping Cart</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="login.html">Login</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="login.html">Register</a></li>
-                <li className="footer__widget--menu__list"><a className="footer__widget--menu__text" href="checkout.html">Checkout</a></li>
+                <li className="footer__widget--menu__list"><Link className="footer__widget--menu__text" to="/account">My Account</Link></li>
+                <li className="footer__widget--menu__list"><Link className="footer__widget--menu__text" to="/cart">Shopping Cart</Link></li>
+                <li className="footer__widget--menu__list"><Link className="footer__widget--menu__text" href="checkout.html">Checkout</Link></li>
               </ul>
             </div>
           </div>
           <div className="col-lg-4 col-md-7">
-            <div className="footer__widget">
+            {/* <div className="footer__widget">
               <h2 className="footer__widget--title ">Newsletter <button className="footer__widget--button" aria-label="footer widget button" />
                 <svg className="footer__widget--title__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12.355" height="8.394" viewBox="0 0 10.355 6.394">
                   <path d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor" />
@@ -132,7 +131,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

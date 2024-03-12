@@ -37,7 +37,7 @@ const Header = () => {
                   <NavLink className="header__menu--link" to='/shop'>Shop</NavLink>
                 </li>
                 <li className="header__menu--items">
-                  <NavLink className="header__menu--link" to='/whitelist'>Whitelist </NavLink>
+                  <NavLink className="header__menu--link" to='/wishlist'>Wishlist </NavLink>
                 </li>
                 <li className="header__menu--items">
                   <NavLink className="header__menu--link" to='/contact'>Contact </NavLink>  
@@ -58,14 +58,14 @@ const Header = () => {
                 </a>
               </li>
               <li className="header__account--items">
-                <a className="header__account--btn d-sm-2-none" href="wishlist.html">
+              <Link className="header__account--btn d-sm-2-none" to="/wishlist">
                   <span className="header__account--btn__icon">
                     <svg width={17} height={17} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.09836 2.28681C1.75014 2.69477 1.47391 3.1791 1.28545 3.71213C1.097 4.24516 1 4.81646 1 5.39341C1 5.97036 1.097 6.54167 1.28545 7.0747C1.47391 7.60773 1.75014 8.09206 2.09836 8.50002L8.50001 16L14.9016 8.50002C15.6049 7.6761 16 6.55862 16 5.39341C16 4.22821 15.6049 3.11073 14.9016 2.28681C14.1984 1.46289 13.2446 1.00001 12.25 1.00001C11.2554 1.00001 10.3016 1.46289 9.59833 2.28681L8.50001 3.57358L7.40168 2.28681C7.05346 1.87884 6.64006 1.55522 6.18509 1.33443C5.73011 1.11364 5.24248 1 4.75002 1C4.25756 1 3.76992 1.11364 3.31495 1.33443C2.85998 1.55522 2.44658 1.87884 2.09836 2.28681V2.28681Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   <span className="visually-hidden">Wishlist</span> 
-                </a>
+                </Link>
               </li>
               <li className="header__account--items">
                 <Link className="header__account--btn d-sm-2-none" to="/login">
@@ -105,27 +105,26 @@ const Header = () => {
         <nav className="offcanvas__menu">
           <ul className="offcanvas__menu_ul">
             <li className="offcanvas__menu_li">
-              <a className="offcanvas__menu_item" href="index.html">Home</a>
+            <NavLink className="header__menu--link active" to={"/"}>Home</NavLink>
             </li>
             <li className="offcanvas__menu_li">
-              <a className="offcanvas__menu_item" href="shop.html">Shop</a>
+            <NavLink className="header__menu--link active" to={"/shop"}>Shop</NavLink>
             </li>
             <li className="offcanvas__menu_li">
-              <a className="offcanvas__menu_item" href="blog.html">Blog</a>
+            <NavLink className="header__menu--link active" to={"/wishlist"}>Wishlist</NavLink>
             </li>
             <li className="offcanvas__menu_li">
-              <a className="offcanvas__menu_item" href="index.html#">Pages</a>
+            <NavLink className="header__menu--link active" to={"/contact"}>Contact</NavLink>
             </li>
-            <li className="offcanvas__menu_li"><a className="offcanvas__menu_item" href="about.html">About</a></li>
-            <li className="offcanvas__menu_li"><a className="offcanvas__menu_item" href="contact.html">Contact</a></li>
           </ul>
+
           <div className="offcanvas__account--items">
-            <a className="offcanvas__account--items__btn d-flex align-items-center" href="login.html">
+            <Link className="offcanvas__account--items__btn d-flex align-items-center" to="/login">
               <span className="offcanvas__account--items__icon"> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="20.51" height="19.443" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={32} /><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" strokeMiterlimit={10} strokeWidth={32} /></svg> 
               </span>
               <span className="offcanvas__account--items__label">Login / Register</span>
-            </a>
+            </Link>
           </div>
         </nav>
       </div>
@@ -135,20 +134,20 @@ const Header = () => {
     <div className="offcanvas__sticky--toolbar">
       <ul className="d-flex justify-content-between">
         <li className="offcanvas__sticky--toolbar__list">
-          <a className="offcanvas__sticky--toolbar__btn" href="index.html">
+          <Link className="offcanvas__sticky--toolbar__btn" to="/">
             <span className="offcanvas__sticky--toolbar__icon"> 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="21.51" height="21.443" viewBox="0 0 22 17"><path fill="currentColor" d="M20.9141 7.93359c.1406.11719.2109.26953.2109.45703 0 .14063-.0469.25782-.1406.35157l-.3516.42187c-.1172.14063-.2578.21094-.4219.21094-.1406 0-.2578-.04688-.3515-.14062l-.9844-.77344V15c0 .3047-.1172.5625-.3516.7734-.2109.2344-.4687.3516-.7734.3516h-4.5c-.3047 0-.5742-.1172-.8086-.3516-.2109-.2109-.3164-.4687-.3164-.7734v-3.6562h-2.25V15c0 .3047-.11719.5625-.35156.7734-.21094.2344-.46875.3516-.77344.3516h-4.5c-.30469 0-.57422-.1172-.80859-.3516-.21094-.2109-.31641-.4687-.31641-.7734V8.46094l-.94922.77344c-.11719.09374-.24609.14062-.38672.14062-.16406 0-.30468-.07031-.42187-.21094l-.35157-.42187C.921875 8.625.875 8.50781.875 8.39062c0-.1875.070312-.33984.21094-.45703L9.73438.832031C10.1094.527344 10.5312.375 11 .375s.8906.152344 1.2656.457031l8.6485 7.101559zm-3.7266 6.50391V7.05469L11 1.99219l-6.1875 5.0625v7.38281h3.375v-3.6563c0-.3046.10547-.5624.31641-.7734.23437-.23436.5039-.35155.80859-.35155h3.375c.3047 0 .5625.11719.7734.35155.2344.211.3516.4688.3516.7734v3.6563h3.375z" /></svg>
             </span>
             <span className="offcanvas__sticky--toolbar__label">Home</span>
-          </a>
+          </Link>
         </li>
         <li className="offcanvas__sticky--toolbar__list">
-          <a className="offcanvas__sticky--toolbar__btn" href="shop.html">
+          <Link className="offcanvas__sticky--toolbar__btn" to="/shop">
             <span className="offcanvas__sticky--toolbar__icon"> 
               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="18.51" height="17.443" viewBox="0 0 448 512"><path d="M416 32H32A32 32 0 0 0 0 64v384a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zm-16 48v152H248V80zm-200 0v152H48V80zM48 432V280h152v152zm200 0V280h152v152z" /></svg>
             </span>
             <span className="offcanvas__sticky--toolbar__label">Shop</span>
-          </a>
+          </Link>
         </li>
         <li className="offcanvas__sticky--toolbar__list ">
           <a className="offcanvas__sticky--toolbar__btn search__open--btn" href="javascript:void(0)" data-offcanvas>
@@ -170,7 +169,7 @@ const Header = () => {
           </a>
         </li>
         <li className="offcanvas__sticky--toolbar__list">
-          <a className="offcanvas__sticky--toolbar__btn" href="wishlist.html">
+          <Link className="offcanvas__sticky--toolbar__btn" to="/wishlist">
             <span className="offcanvas__sticky--toolbar__icon"> 
               <svg width={18} height={18} viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.5379 1.52734C11.9519 0.1875 9.51832 0.378906 8.01442 1.9375C6.48317 0.378906 4.04957 0.1875 2.46364 1.52734C0.412855 3.25 0.713636 6.06641 2.1902 7.57031L6.97536 12.4648C7.24879 12.7383 7.60426 12.9023 8.01442 12.9023C8.39723 12.9023 8.7527 12.7383 9.02614 12.4648L13.8386 7.57031C15.2879 6.06641 15.5886 3.25 13.5379 1.52734ZM12.8816 6.64062L8.09645 11.5352C8.04176 11.5898 7.98707 11.5898 7.90504 11.5352L3.11989 6.64062C2.10817 5.62891 1.91676 3.71484 3.31129 2.53906C4.3777 1.63672 6.01832 1.77344 7.05739 2.8125L8.01442 3.79688L8.97145 2.8125C9.98317 1.77344 11.6238 1.63672 12.6902 2.51172C14.0847 3.71484 13.8933 5.62891 12.8816 6.64062Z" fill="currentColor" />
@@ -178,7 +177,7 @@ const Header = () => {
             </span>
             <span className="offcanvas__sticky--toolbar__label">Wishlist</span>
             <span className="items__count">3</span> 
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
@@ -267,7 +266,7 @@ const Header = () => {
     <div className="predictive__search--box ">
       <div className="predictive__search--box__inner">
         <h2 className="predictive__search--title">Search Products</h2>
-        <form className="predictive__search--form" action="index.html#">
+        <form className="predictive__search--form" action="#">
           <label>
             <input className="predictive__search--input" placeholder="Search Here" type="text" />
           </label>
