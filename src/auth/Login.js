@@ -1,6 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { signUpWithEmailAndPassword } from '../firebase';
+import {  signInWithEmailAndPassword } from "../firebase";
+import {auth} from '../firebase'
+import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [signupUsername, setSignupUsername] = useState('');
+  const [signupEmail, setSignupEmail] = useState('');
+  const [signupPassword, setSignupPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); 
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    // await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then((UserCredetial) => {console.log(UserCredetial); } )
+    try {
+      await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+      console.log('Logged in successfully');
+      navigate('/account');
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    if (signupPassword !== confirmPassword) {
+      setError("Passwords don't match");
+      return;
+    }
+    try {
+      await signUpWithEmailAndPassword( signupEmail, signupPassword);
+      console.log('User signed up successfully');
+      navigate('/account');
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+
   return (
     <>
 <main className="main__content_wrapper">
@@ -23,76 +64,53 @@ function Login() {
   {/* Start login section  */}
   <div className="login__section section--padding">
     <div className="container">
-      <form action="login.html#">
-        <div className="login__section--inner">
-          <div className="row row-cols-md-2 row-cols-1">
-            <div className="col">
-              <div className="account__login">
-                <div className="account__login--header mb-25">
-                  <h2 className="account__login--header__title mb-15">Login</h2>
-                  <p className="account__login--header__desc">Login if you area a returning customer.</p>
-                </div>
-                <div className="account__login--inner">
-                  <label>
-                    <input className="account__login--input" placeholder="Email Addres" type="email" />
-                  </label>
-                  <label>
-                    <input className="account__login--input" placeholder="Password" type="password" />
-                  </label>
-                  <div className="account__login--remember__forgot mb-15 d-flex justify-content-between align-items-center">
-                    <div className="account__login--remember position__relative">
-                      <input className="checkout__checkbox--input" id="check1" type="checkbox" />
-                      <span className="checkout__checkbox--checkmark" />
-                      <label className="checkout__checkbox--label login__remember--label" htmlFor="check1">
-                        Remember me</label>
-                    </div>
-                    <button className="account__login--forgot" type="submit">Forgot Your Password?</button>
-                  </div>
-                  <button className="account__login--btn primary__btn" type="submit">Login</button>
-                  <div className="account__login--divide">
-                    <span className="account__login--divide__text">OR</span>
-                  </div>
-                  <div className="account__social d-flex justify-content-center mb-15">
-                    <a className="account__social--link facebook" target="_blank" href="https://www.facebook.com">Facebook</a>
-                    <a className="account__social--link google" target="_blank" href="https://www.google.com">Google</a>
-                    <a className="account__social--link twitter" target="_blank" href="https://twitter.com">Twitter</a>
-                  </div>
-                  <p className="account__login--signup__text">Don,t Have an Account? <button type="submit">Sign up now</button></p>
-                </div>
-              </div>
+    <form onSubmit={(e) => e.preventDefault()}>
+    <div className="login__section--inner">
+      <div className="row row-cols-md-2 row-cols-1">
+        <div className="col">
+          <div className="account__login">
+            <div className="account__login--header mb-25">
+              <h2 className="account__login--header__title mb-15">Login</h2>
+              <p className="account__login--header__desc">Login if you are a returning customer.</p>
             </div>
-            <div className="col">
-              <div className="account__login register">
-                <div className="account__login--header mb-25">
-                  <h2 className="account__login--header__title mb-15">Create an Account</h2>
-                  <p className="account__login--header__desc">Register here if you are a new customer</p>
-                </div>
-                <div className="account__login--inner">
-                  <label>
-                    <input className="account__login--input" placeholder="Username" type="text" />
-                  </label>
-                  <label>
-                    <input className="account__login--input" placeholder="Email Addres" type="email" />
-                  </label>
-                  <label>
-                    <input className="account__login--input" placeholder="Password" type="password" />
-                  </label>
-                  <label>
-                    <input className="account__login--input" placeholder="Confirm Password" type="password" />
-                  </label>
-                  <button className="account__login--btn primary__btn mb-10" type="submit">Submit &amp; Register</button>
-                  <div className="account__login--remember position__relative">
-                    <input className="checkout__checkbox--input" id="check2" type="checkbox" />
-                    <span className="checkout__checkbox--checkmark" />
-                    <label className="checkout__checkbox--label login__remember--label" htmlFor="check2">
-                      I have read and agree to the terms &amp; conditions</label>
-                  </div>
-                </div>
-              </div>
+            <div className="account__login--inner">
+              <label>
+                <input className="account__login--input" placeholder="Email Address" type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
+              </label>
+              <label>
+                <input className="account__login--input" placeholder="Password" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
+              </label>
+              <button className="account__login--btn primary__btn" type="submit" onClick={handleLogin}>Login</button>
             </div>
           </div>
         </div>
-      </form>
+        <div className="col">
+          <div className="account__login register">
+            <div className="account__login--header mb-25">
+              <h2 className="account__login--header__title mb-15">Create an Account</h2>
+              <p className="account__login--header__desc">Register here if you are a new customer</p>
+            </div>
+            <div className="account__login--inner">
+              <label>
+                <input className="account__login--input" placeholder="Username" type="text" value={signupUsername} onChange={(e) => setSignupUsername(e.target.value)} />
+              </label>
+              <label>
+                <input className="account__login--input" placeholder="Email Address" type="email" value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)} />
+              </label>
+              <label>
+                <input className="account__login--input" placeholder="Password" type="password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} />
+              </label>
+              <label>
+                <input className="account__login--input" placeholder="Confirm Password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+              </label>
+              <button className="account__login--btn primary__btn mb-10" type="submit" onClick={handleSignup}>Submit & Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {error && <p>{error}</p>}
+  </form>
     </div>     
   </div>
   {/* End login section  */}
