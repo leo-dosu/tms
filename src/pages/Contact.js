@@ -1,4 +1,8 @@
+import React, { useState } from 'react';
+import axios from 'axios'; 
+
 const Contact = () => {
+
     return(
       <>
       <main className="main__content_wrapper">
@@ -28,41 +32,41 @@ const Contact = () => {
       <div className="main__contact--area position__relative">
         <div className="contact__form">
           <h3 className="contact__form--title mb-30">Contact Me</h3>
-          <form className="contact__form--inner" action="contact.html#">
-            <div className="row">
-              <div className="col-lg-6 col-md-6">
-                <div className="contact__form--list mb-20">
-                  <label className="contact__form--label" htmlFor="input1">First Name <span className="contact__form--label__star">*</span></label>
-                  <input className="contact__form--input" name="firstname" id="input1" placeholder="Your First Name" type="text" />
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <div className="contact__form--list mb-20">
-                  <label className="contact__form--label" htmlFor="input2">Last Name <span className="contact__form--label__star">*</span></label>
-                  <input className="contact__form--input" name="lastname" id="input2" placeholder="Your Last Name" type="text" />
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <div className="contact__form--list mb-20">
-                  <label className="contact__form--label" htmlFor="input3">Phone Number <span className="contact__form--label__star">*</span></label>
-                  <input className="contact__form--input" name="number" id="input3" placeholder="Phone number" type="text" />
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6">
-                <div className="contact__form--list mb-20">
-                  <label className="contact__form--label" htmlFor="input4">Email <span className="contact__form--label__star">*</span></label>
-                  <input className="contact__form--input" name="email" id="input4" placeholder="Email" type="text" />
-                </div>
-              </div>
-              <div className="col-12">
-                <div className="contact__form--list mb-15">
-                  <label className="contact__form--label" htmlFor="input5">Write Your Message <span className="contact__form--label__star">*</span></label>
-                  <textarea className="contact__form--textarea" name="message" id="input5" placeholder="Write Your Message" defaultValue={""} />
-                </div>
-              </div>
-            </div>
-            <button className="contact__form--btn primary__btn" type="submit"> <span>Submit Now</span></button>  
-          </form>
+         <form action="https://public.herotofu.com/v1/c8b92850-e50c-11ee-b428-632ee80a2804" method="post" acceptCharset="UTF-8">
+  <div className="row">
+    <div className="col-lg-6 col-md-6">
+      <div className="contact__form--list mb-20">
+        <label className="contact__form--label" htmlFor="input1">First Name <span className="contact__form--label__star">*</span></label>
+        <input className="contact__form--input" name="firstname" id="input1" placeholder="Your First Name" type="text" />
+      </div>
+    </div>
+    <div className="col-lg-6 col-md-6">
+      <div className="contact__form--list mb-20">
+        <label className="contact__form--label" htmlFor="input2">Last Name <span className="contact__form--label__star">*</span></label>
+        <input className="contact__form--input" name="lastname" id="input2" placeholder="Your Last Name" type="text" />
+      </div>
+    </div>
+    <div className="col-lg-6 col-md-6">
+      <div className="contact__form--list mb-20">
+        <label className="contact__form--label" htmlFor="input3">Phone Number <span className="contact__form--label__star">*</span></label>
+        <input className="contact__form--input" name="number" id="input3" placeholder="Phone number" type="text" />
+      </div>
+    </div>
+    <div className="col-lg-6 col-md-6">
+      <div className="contact__form--list mb-20">
+        <label className="contact__form--label" htmlFor="input4">Email <span className="contact__form--label__star">*</span></label>
+        <input className="contact__form--input" name="email" id="input4" placeholder="Email" type="text" />
+      </div>
+    </div>
+    <div className="col-12">
+      <div className="contact__form--list mb-15">
+        <label className="contact__form--label" htmlFor="input5">Write Your Message <span className="contact__form--label__star">*</span></label>
+        <textarea className="contact__form--textarea" name="message" id="input5" placeholder="Write Your Message" defaultValue={""} />
+      </div>
+    </div>
+  </div>
+  <button className="contact__form--btn primary__btn" type="submit"><span>Submit Now</span></button>  
+</form>
         </div>
         <div className="contact__info border-radius-5">
           <div className="contact__info--items">
